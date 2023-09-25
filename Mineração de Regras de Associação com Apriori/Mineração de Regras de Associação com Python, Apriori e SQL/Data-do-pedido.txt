@@ -1,0 +1,27 @@
+select min(data_pedido), max(data_pedido) from pedidos;
+
+select dayname(data_pedido), data_pedido from pedidos;
+
+SELECT @@lc_time_names;
+
+SET lc_time_names = 'pt_BR';
+
+SET lc_time_names = 'en_US';
+
+
+
+delimiter $$
+
+create function GetDiaSemana(data_pedido date) returns varchar (10)
+
+begin
+	
+  return dayname(data_pedido);
+
+end $$
+
+delimiter ;
+
+
+
+select *, GetDiaSemana(data_pedido) as dia_semana from pedidos

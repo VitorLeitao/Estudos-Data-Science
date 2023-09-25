@@ -1,0 +1,13 @@
+alter table pedidos drop column numero;
+
+alter table pedidos drop column cliente;
+
+alter table pedidos drop column endereco;
+
+alter table pedidos drop column telefone;
+
+alter table pedidos drop column valor_pizza;
+
+alter table pedidos drop column valor_entrega;
+
+alter table pedidos drop column hora_entrega;

@@ -1,0 +1,38 @@
+delimiter $$
+
+create function GetPeriodoVenda(hora_pedido time) returns varchar (10)
+
+begin
+	
+  declare periodo varchar(10);
+   
+  if (hora_pedido < '20:00:00') then
+
+    set periodo = 'Inicio';
+
+  elseif (hora_pedido >= '20:00:00' and hora_pedido < '22:00:00') then
+
+    set periodo = 'Pico';
+
+  elseif (hora_pedido >= '22:00:00') then
+
+    set periodo = 'Final';
+
+  end if;
+
+
+  return periodo;
+
+end $$
+
+delimiter ;
+
+
+
+select 
+  GetDiaSemana(data_pedido) as dia_semana,
+
+  GetPeriodoVenda(hora_pedido) as hora_venda
+
+from
+  pedidos

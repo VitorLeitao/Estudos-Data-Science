@@ -1,0 +1,35 @@
+delimiter $$
+create function GetGrauCurso(curso varchar(100)) returns varchar(100)
+begin
+	declare grau varchar(100);
+    if (curso = 'ENGENHARIA AGRON�MICA' or 
+		curso = 'CI�NCIA DA COMPUTA��O - BACHARELADO') then
+	  set grau = 'SUPERIOR';
+      
+	elseif (curso = 'ENSINO M�DIO E T�CNICO EM AGROPECU�RIA' or 
+			curso = 'ENSINO M�DIO E T�CNICO EM INFORM�TICA' or
+			curso = 'ENSINO M�DIO E T�CNICO EM ALIMENTOS') then
+     set grau = 'ENSINO M�DIO E T�CNICO';
+	
+    elseif (curso = 'T�CNICO EM INFORM�TICA - NOTURNO' or
+            curso = 'T�CNICO EM AGROPECU�RIA' or
+            curso = 'T�CNICO EM INFORM�TICA - VESPERTINO' or
+            curso = 'T�CNICO EM MEIO AMBIENTE' or
+            curso = 'T�CNICO EM ENFERMAGEM - NOTURNO' or
+            curso = 'T�CNICO EM SEGURAN�A DO TRABALHO') then
+	  set grau = 'T�CNICO';
+	
+    elseif (curso = 'CI�NCIAS BIOL�GICAS - LICENCIATURA' or 
+			curso = 'EDUCA��O F�SICA - LICENCIATURA - VESPERTINO' or
+			curso = 'EDUCA��O F�SICA - LICENCIATURA - NOTURNO') then
+     set grau = 'LICENCIATURA';
+     
+     elseif (curso = 'EDUCA��O F�SICA - BACHARELADO - NOTURNO' or 
+			curso = 'EDUCA��O F�SICA - BACHARELADO - VESPERTINO') then
+     set grau = 'BACHARELADO';
+    
+    end if;  
+	return grau;
+end $$
+delimiter ;
+  

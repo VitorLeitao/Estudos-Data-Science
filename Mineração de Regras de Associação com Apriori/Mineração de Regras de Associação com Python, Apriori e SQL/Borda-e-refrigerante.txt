@@ -1,0 +1,29 @@
+delimiter $$
+create function GetBorda(valor_borda float) returns varchar (20)
+begin
+	declare borda varchar(20);
+    
+    if (valor_borda > 0) then
+		set borda = 'Borda sim';
+	else
+		set borda = 'Borda nao';
+	end if;
+    
+    return borda;
+end $$
+delimiter ;
+
+delimiter $$
+create function GetRefrigerante(valor_refrigerante float) returns varchar (20)
+begin
+	declare refrigerante varchar(20);
+    
+    if (valor_refrigerante > 0) then
+		set refrigerante = 'Refrigerante sim';
+	else
+		set refrigerante = 'Refrigerante nao';
+	end if;
+    
+    return refrigerante;
+end $$
+delimiter ;

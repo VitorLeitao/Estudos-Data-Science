@@ -1,0 +1,17 @@
+delimiter $$
+create function GetFaixaTempo(minutos float) returns varchar (10)
+begin
+  declare faixa varchar(10);
+  if (minutos >= 10 and minutos < 22) then
+    set faixa = '10-22';
+  elseif (minutos >= 22 and minutos < 33) then
+    set faixa = '22-33';
+  elseif (minutos >= 33 and minutos < 44) then
+    set faixa = '33-44';
+  elseif (minutos >= 44 and minutos <= 55) then
+    set faixa = '44-55';
+  end if;
+
+  return faixa;
+end $$
+delimiter ;
